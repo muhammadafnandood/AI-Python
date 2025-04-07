@@ -1,0 +1,84 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/muhammadafnandood/AI-Python/blob/main/streamlitproject\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "# https://zkofficialst.streamlit.app/\n",
+        "\n",
+        "\n",
+        "# import streamlit as st\n",
+        "# import pandas as pd\n",
+        "\n",
+        "import streamlit as st\n",
+        "# st.title(\"Welcome to my first website\")\n",
+        "# st.header(\"Python\")\n",
+        "# st.subheader(\"java\")\n",
+        "# st.markdown( \"I Love Coding\")\n",
+        "# st.code(\"\"\"for i in range (1,5,1):\n",
+        "#         print(\"hi\")\n",
+        "#         \"\"\")\n",
+        "\n",
+        "\n",
+        "#  excel file ke liye ye code he\n",
+        "# import pandas as pd  # ye excel sheet add karne ka code he\n",
+        "\n",
+        "# # veriable dataset\n",
+        "# dataset = pd .read_csv( \"code.py.csv\")\n",
+        "\n",
+        "# st.dataframe(dataset)\n",
+        "\n",
+        "\n",
+        "name = st.text_input( \"Enter your name :\")\n",
+        "fname = st.text_input( \"Enter your Father name :\")\n",
+        "\n",
+        "adr = st.text_area(\"Enter your text:\")\n",
+        "\n",
+        "# c_data = st.selectbox (\"Enter your class:\", (1,2,3,4,5,6,7,,8,9,10))\n",
+        "\n",
+        "c_data = st.selectbox(\"Enter your class:\", (1, 2, 3, 4, 5, 6, 7, 8, 9, 10))\n",
+        "\n",
+        "button = st.button( \"Done\")\n",
+        "if button :\n",
+        "    st.markdown(f\"\"\"\n",
+        "    name : {name}\n",
+        "    father name : {fname}\n",
+        "     address : {adr}\n",
+        "    class : {c_data}\n",
+        "\n",
+        "\"\"\")\n"
+      ],
+      "metadata": {
+        "id": "jm3J-YxKsSoR"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNlNL4MDdVtXTWqXUuc6mHf",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
