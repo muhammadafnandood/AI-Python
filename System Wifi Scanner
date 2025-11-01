@@ -1,0 +1,43 @@
+# pip install wifi-scanner  first install in terminal
+
+import wifi_scanner
+import sys
+
+def scan_wifi_networks():
+    """
+    Aas-paas ke WiFi networks ko scan karta hai aur unki maloomat print karta hai.
+    """
+    print(" WiFi Networks Scan Ho Rahe Hain... (Kuch Seconds Lag Sakte Hain) \n")
+    try:
+        # WiFi scanner ko shuru karein
+        scanner = wifi_scanner.WifiScanner()
+        
+        # Networks ko scan karein
+        networks = scanner.scan()
+
+        if not networks:
+            print(" Koi WiFi network nahi mila.")
+            print("TIPS: Check karein ke aapka WiFi adapter on hai aur aapke paas zaroori permissions hain.")
+            return
+
+        print(f" {len(networks)} Networks Milay:\n")
+        
+        # Networks ko signal strength ke hisaab se sort karke dikhayein
+        # Taake sab se mazbot signal wala network pehle nazar aaye
+        sorted_networks = sorted(networks, key=lambda x: x.signal_strength, reverse=True)
+o
+        # Output ko ek table ki shakal mein dikhane ki koshish
+        print(f"{'SSID (Naam)':<30} | {'Signal (dBm)':<15} | {'BSSID (MAC)':<20} | {'Channel':<7}")
+        print("-" * 75)
+        
+        for network in sorted_networks:
+            print(f"{network.ssid:<30} | {network.signal_strength:<15} | {network.bssid:<20} | {network.channel:<7}")
+
+    except Exception as e:
+        print(f"\n 
+Scan karte waqt error aaya: {e}", file=sys.stderr)
+        # Operating System ki permission issue aane par yeh message aksar dikhta hai
+        print("TIPS: Is script ko administrator (Windows) ya root (Linux/macOS) privileges ke saath run karne ki koshish karein.", file=sys.stderr)
+        
+if __name__ == "__main__":
+    scan_wifi_networks()
